@@ -8,11 +8,19 @@
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tjtlogo" android:id="@+id/imageView2"></ImageView>
         
     </LinearLayout>
-    <LinearLayout android:id="@+id/linearLayout2" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button" android:id="@+id/button1"></Button>
-        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
-
+	    <LinearLayout android:id="@+id/linearLayout2" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout3" android:layout_width="fill_parent">
+	        <TextView android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_width="wrap_content" android:text="@string/Total"></TextView>
+	        <TextView android:layout_height="wrap_content" android:id="@+id/TotalBillTextView" android:text="TextView" android:layout_width="wrap_content"></TextView>
+	        <Button android:id="@+id/button8" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/ResetButton" android:fadingEdge="horizontal" ></Button>
+	        <Button android:text="@string/OrderButton" android:id="@+id/button9" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
+	    </LinearLayout>
         </LinearLayout>
+	        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/ScrollLayout1">
+	            <TableLayout android:id="@+id/refreshmentsMenuTableLayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+	            </TableLayout>
+	        </ScrollView>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
     	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
