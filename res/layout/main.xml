@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:background="@drawable/grass_background1">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/HeaderLayout" android:gravity="center">
+        <ImageView android:src="@drawable/tjtlogo" android:id="@+id/imageView2" android:layout_width="wrap_content" android:layout_weight="1" android:layout_gravity="center" android:layout_height="wrap_content"></ImageView>
+        
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center|center_vertical" android:layout_gravity="center_vertical" android:orientation="vertical">
+        <ImageButton android:src="@drawable/refreshmentsbutton" android:layout_height="wrap_content" android:id="@+id/refreshmentsButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageButton>
+        <ImageButton android:src="@drawable/promotionsbutton" android:layout_height="wrap_content" android:id="@+id/promotionsButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageButton>
+        <ImageButton android:src="@drawable/infobutton" android:layout_height="wrap_content" android:id="@+id/infoButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageButton>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
+    	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
+        	<ImageView android:src="@drawable/addidaslogo" android:id="@+id/imageView1" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_width="wrap_content" android:layout_gravity="left" android:layout_weight="1"></ImageView>
+        	<ImageView android:src="@drawable/uefa_logo" android:id="@+id/imageView3" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_gravity="right"  android:layout_width="wrap_content" android:layout_weight="1"></ImageView>
+        </LinearLayout>
+    </RelativeLayout>
+    
+</LinearLayout>

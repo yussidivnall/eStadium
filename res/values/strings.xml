@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, EStadiumActivity!</string>
+    <string name="app_name">EStadium</string>
+    <string name="refreshmentsButtonText">Order and Pay</string>
+    <string name="promotionsButtonText">My Promotions</string>
+    <string name="infoButtonText">Info</string>
+</resources>
