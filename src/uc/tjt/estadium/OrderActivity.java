@@ -7,11 +7,14 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.TableRow.LayoutParams;
 
 public class OrderActivity extends Activity {
@@ -35,25 +38,32 @@ public class OrderActivity extends Activity {
         
     }
 	
-    private class Consumable{
+	public class Consumable{
     	String name;
     	float price;
     	Consumable(String n,float p){
     		name=n;price=p;
     	}
     }
-    private class BillItem{
+    public class BillItem{
     	Consumable item;
     	int count=0;
     	float cost=item.price*count;
+    	
+    	public BillItem(){
+    		item=new Consumable("-", 0.00f);
+    	}
     }
-    private class Bill{
-    	List <BillItem> items;
+    public class Bill{
+    	Vector <BillItem> items;
+    	public Bill(){
+    		items = new Vector <BillItem>();
+    	}
     }
     private void UpdateMenu(){
     	TableLayout mTableLayout = (TableLayout)findViewById(R.id.refreshmentsMenuTableLayout);
     	mTableLayout.removeAllViews();
-    	for(Consumable item:mRefreshmentsMenu){
+    	for(final Consumable item:mRefreshmentsMenu){
     		TableRow row = new TableRow(this);
             row.setLayoutParams(new LayoutParams(
                     LayoutParams.FILL_PARENT,
@@ -64,6 +74,17 @@ public class OrderActivity extends Activity {
                     LayoutParams.WRAP_CONTENT));
             lo.setOrientation(LinearLayout.HORIZONTAL);
             Button addButton = makeButton(item.name+" : £"+item.price);
+            addButton.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					addDrink(item);
+				}
+            	
+            	
+            });
+            
+            
             Button removeButton = makeButton("-");
             Button clearButton = makeButton("Clear");
             
@@ -76,11 +97,34 @@ public class OrderActivity extends Activity {
                     LayoutParams.WRAP_CONTENT));
     	}
     }
-    public void addDrink(Consumable c){}
+    public void addDrink(Consumable c){
+    	BillItem mitem = getBillableItem(c);
+    	//item.count=item.count++;
+    	
+    }
     public void removeDrink(Consumable c){}
     public void clearDrink(Consumable c){}
     public void reset(){}
     public void order(){}
+    
+    public BillItem getBillableItem(Consumable c){
+    	try{
+	    	BillItem ret = new BillItem();
+	    	
+	    	for(BillItem item:mBill.items){
+	    		if(c.equals(item)) return item;
+	    	}
+	    	return ret;
+    	}catch (NullPointerException npe){
+    		Toast.makeText(this, "Null pointer caught in getBillItem...", Toast.LENGTH_SHORT);
+    		return new BillItem();
+    	}catch (Exception e){
+    		Toast.makeText(this, "exception in getBillItem...", Toast.LENGTH_SHORT);
+    		e.printStackTrace();
+    		return new BillItem();
+    	}
+    	
+    }
     
     /*
      * A helper function to create a button
