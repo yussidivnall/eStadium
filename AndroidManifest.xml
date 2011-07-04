@@ -14,7 +14,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".OrderActivity"></activity>
-        <activity android:name=".AdidasAdvertActivity"></activity>
+        <activity android:name=".InformationActivity"></activity>
+        <activity android:name=".PromotionsActivity"></activity>
+        
         
 
     </application>
