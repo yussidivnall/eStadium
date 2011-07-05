@@ -1,11 +1,11 @@
 package uc.tjt.estadium;
 
 public class BillItem{
-	Consumable item;
+	public Consumable mConsumable;
 	int count=0;
-	float cost=item.price*count;
+	float cost=0;
 	
-	public BillItem(){
-		//item=new Consumable("-", 0.00f);
+	public BillItem(Consumable c){
+		mConsumable=c;
 	}
 }

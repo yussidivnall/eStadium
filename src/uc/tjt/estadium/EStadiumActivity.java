@@ -31,7 +31,6 @@ public class EStadiumActivity extends Activity {
         mRefreshmentsButton.setOnClickListener(new OnClickListener(){    
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				try{
          		 Intent intent = new Intent(v.getContext(), OrderActivity.class);
         		 startActivityForResult(intent,0);

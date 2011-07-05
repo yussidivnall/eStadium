@@ -1,39 +1,52 @@
 package uc.tjt.estadium;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import android.widget.Toast;
 
 public class Bill{
-	Vector <BillItem> items;
+	ArrayList <BillItem> items;
 	public Bill(){
-		items = new Vector <BillItem>();
+		items = new ArrayList<BillItem>();
 	}
 	
     public void addDrink(Consumable c){
-    	BillItem item = getBillableItem(c);
-    	item.count=item.count++;
+    	BillItem bItem = getBillableItem(c);
+    	if(bItem == null){
+    		bItem = new BillItem(c);
+    		bItem.count++;
+    		bItem.cost=bItem.mConsumable.price*bItem.count;
+    		items.add(bItem);
+    	}else{
+    		bItem.count++;
+    		bItem.cost=bItem.mConsumable.price*bItem.count;
+    	}
     	
+    	System.out.println("Count:"+bItem.count);
+    	System.out.println("Totals:"+items.size());
     }
     public void removeDrink(Consumable c){}
     public void clearDrink(Consumable c){}
     public void reset(){}
     
+    
+    
     public BillItem getBillableItem(Consumable c){
     	try{
-	    	BillItem ret = new BillItem();
-	    	
 	    	for(BillItem item:items){
-	    		if(c.equals(item)) return item;
+	    		System.out.println("Found Item (In getBillableItem");
+	    		if(c.equals(item.mConsumable)) return item;
+	    		
 	    	}
-	    	return ret;
+	    	System.out.println("DID NOT FIND Item (In getBillableItem");
+	    	return null;
     	}catch (NullPointerException npe){
-    //		Toast.makeText(this, "Null pointer caught in getBillItem...", Toast.LENGTH_SHORT);
-    		return new BillItem();
+    		npe.printStackTrace();
+    		return null;
     	}catch (Exception e){
-   // 		Toast.makeText(this, "exception in getBillItem...", Toast.LENGTH_SHORT);
     		e.printStackTrace();
-    		return new BillItem();
+    		return null;
     	}
     	
     }

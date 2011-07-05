@@ -17,10 +17,7 @@
 	        <Button android:text="@string/OrderButton" android:id="@+id/button9" android:layout_height="wrap_content" android:layout_width="wrap_content"></Button>
 	    </LinearLayout>
         </LinearLayout>
-	        <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/ScrollLayout1">
-	            <TableLayout android:id="@+id/refreshmentsMenuTableLayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
-	            </TableLayout>
-	        </ScrollView>
+	        <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/list"></ListView>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
     	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
