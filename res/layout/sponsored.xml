@@ -9,10 +9,7 @@
         
     </LinearLayout>
     <LinearLayout android:id="@+id/BodyLayout" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/offersButton" android:text="@string/OffersButtonText"></Button>
-        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/redeemButton" android:text="@string/redeemButtonText"></Button>
-        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/sponserButton" android:text="@string/sponsoredButtonText"></Button>
-
+		    <WebView  xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/webView" android:layout_width="fill_parent" android:layout_height="fill_parent"/>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
     	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">

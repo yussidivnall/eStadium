@@ -6,10 +6,13 @@ import java.util.Vector;
 
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -38,32 +41,13 @@ public class OrderActivity extends Activity {
         
     }
 	
-	public class Consumable{
-    	String name;
-    	float price;
-    	Consumable(String n,float p){
-    		name=n;price=p;
-    	}
-    }
-    public class BillItem{
-    	Consumable item;
-    	int count=0;
-    	float cost=item.price*count;
-    	
-    	public BillItem(){
-    		item=new Consumable("-", 0.00f);
-    	}
-    }
-    public class Bill{
-    	Vector <BillItem> items;
-    	public Bill(){
-    		items = new Vector <BillItem>();
-    	}
-    }
+
+
+
     private void UpdateMenu(){
     	TableLayout mTableLayout = (TableLayout)findViewById(R.id.refreshmentsMenuTableLayout);
     	mTableLayout.removeAllViews();
-    	for(final Consumable item:mRefreshmentsMenu){
+    	for(Consumable item:mRefreshmentsMenu){
     		TableRow row = new TableRow(this);
             row.setLayoutParams(new LayoutParams(
                     LayoutParams.FILL_PARENT,
@@ -73,21 +57,20 @@ public class OrderActivity extends Activity {
                     LayoutParams.FILL_PARENT,
                     LayoutParams.WRAP_CONTENT));
             lo.setOrientation(LinearLayout.HORIZONTAL);
-            Button addButton = makeButton(item.name+" : £"+item.price);
-            addButton.setOnClickListener(new OnClickListener(){
 
-				@Override
-				public void onClick(View v) {
-					addDrink(item);
-				}
-            	
-            	
-            });
+            TextView txt = new TextView(this);
+            txt.setText(item.name+" £"+item.price);
             
+            Button addButton = makeButton("+");
+
+            //OnClickListener clicklsn = new AddDrinkClick(item);
+            //addButton.setOnClickListener(clicklsn);
+    
             
             Button removeButton = makeButton("-");
             Button clearButton = makeButton("Clear");
-            
+            //lo.addView(img);
+            lo.addView(txt);
             lo.addView(addButton);
             lo.addView(removeButton);
             lo.addView(clearButton);
@@ -97,34 +80,10 @@ public class OrderActivity extends Activity {
                     LayoutParams.WRAP_CONTENT));
     	}
     }
-    public void addDrink(Consumable c){
-    	BillItem mitem = getBillableItem(c);
-    	//item.count=item.count++;
-    	
-    }
-    public void removeDrink(Consumable c){}
-    public void clearDrink(Consumable c){}
-    public void reset(){}
+
     public void order(){}
     
-    public BillItem getBillableItem(Consumable c){
-    	try{
-	    	BillItem ret = new BillItem();
-	    	
-	    	for(BillItem item:mBill.items){
-	    		if(c.equals(item)) return item;
-	    	}
-	    	return ret;
-    	}catch (NullPointerException npe){
-    		Toast.makeText(this, "Null pointer caught in getBillItem...", Toast.LENGTH_SHORT);
-    		return new BillItem();
-    	}catch (Exception e){
-    		Toast.makeText(this, "exception in getBillItem...", Toast.LENGTH_SHORT);
-    		e.printStackTrace();
-    		return new BillItem();
-    	}
-    	
-    }
+
     
     /*
      * A helper function to create a button
@@ -140,13 +99,24 @@ public class OrderActivity extends Activity {
     }
     
     public void FakeMenu(){
-    	    	
-    	mRefreshmentsMenu.add(new Consumable("Beer1",2.20f));
-    	mRefreshmentsMenu.add(new Consumable("Beer2",3.20f));
-    	mRefreshmentsMenu.add(new Consumable("Beer3",4.80f));
-    	mRefreshmentsMenu.add(new Consumable("Beer4",5.50f));
-    	mRefreshmentsMenu.add(new Consumable("Beer5",7.20f));
+    	Consumable calrsberg = new Consumable(1,"Calrsberg",3.50f);
+    	Consumable calrsberg_export = new Consumable(2,"Calrsberg Export",3.50f);
+    	
+    	mRefreshmentsMenu.add(calrsberg);
+    	mRefreshmentsMenu.add(calrsberg_export);
+    	  	
+    }
+    class AddDrinkClick implements OnClickListener{
+    	Consumable mConsumable;
+    	AddDrinkClick(Consumable item){
+    		mConsumable = item;
+    	}
+		@Override
+		public void onClick(View v) {
+			mBill.addDrink(mConsumable);
+		}
     	
     }
 
+	
 }

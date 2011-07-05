@@ -3,6 +3,20 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_height="fill_parent" android:background="@drawable/grass_background1">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/HeaderLayout" android:gravity="center">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tjtlogo" android:id="@+id/imageView2"></ImageView>
+        
+    </LinearLayout>
+    <LinearLayout android:id="@+id/BodyLayout" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/VenueInfoTitle" android:text="@string/VenueInfoTitleText"></TextView>
+        <Button android:layout_width="wrap_content" android:id="@+id/SeatingPlanButton" android:layout_height="wrap_content" android:text="@string/SeatingPlanButtonText"></Button>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
+    	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
+        	<ImageView android:src="@drawable/addidaslogo" android:id="@+id/adidasLogo" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_width="wrap_content" android:layout_gravity="left" android:layout_weight="1"></ImageView>
+        	<ImageView android:src="@drawable/uefa_logo" android:id="@+id/uefaLogo" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_gravity="right"  android:layout_width="wrap_content" android:layout_weight="1"></ImageView>
+        </LinearLayout>
+    </RelativeLayout>
     
 </LinearLayout>
