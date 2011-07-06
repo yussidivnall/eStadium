@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:background="@drawable/grass_background1">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/HeaderLayout" android:gravity="center">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tjtlogo" android:id="@+id/imageView2"></ImageView>
+        
+    </LinearLayout>
+    <LinearLayout android:id="@+id/BodyLayout" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Bailey's when purchasing and three drinks" android:id="@+id/OfferButton1"></Button>
+        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Scotch Whiskey" android:id="@+id/OfferButton2"></Button>
+        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Assange" android:id="@+id/OfferButton3"></Button>
+        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
+    	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
+        	<ImageView android:src="@drawable/addidaslogo" android:id="@+id/adidasLogo" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_width="wrap_content" android:layout_gravity="left" android:layout_weight="1"></ImageView>
+        	<ImageView android:src="@drawable/uefa_logo" android:id="@+id/uefaLogo" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_gravity="right"  android:layout_width="wrap_content" android:layout_weight="1"></ImageView>
+        </LinearLayout>
+    </RelativeLayout>
+    
+</LinearLayout>

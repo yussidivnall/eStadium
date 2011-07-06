@@ -19,13 +19,17 @@ public final class R {
         public static final int promotionsbutton=0x7f020005;
         public static final int refreshmentsbutton=0x7f020006;
         public static final int specialoffers=0x7f020007;
-        public static final int tjtlogo=0x7f020008;
-        public static final int uefa_logo=0x7f020009;
+        public static final int swipetoorder=0x7f020008;
+        public static final int tjtlogo=0x7f020009;
+        public static final int uefa_logo=0x7f02000a;
     }
     public static final class id {
         public static final int BodyLayout=0x7f050002;
         public static final int FooterLayout=0x7f050008;
         public static final int HeaderLayout=0x7f050000;
+        public static final int OfferButton1=0x7f05001e;
+        public static final int OfferButton2=0x7f05001f;
+        public static final int OfferButton3=0x7f050020;
         public static final int OffersListView=0x7f050011;
         public static final int OrderEditText=0x7f050019;
         public static final int ResetButton=0x7f050015;
@@ -37,7 +41,7 @@ public final class R {
         public static final int TotalBillTextView=0x7f050014;
         public static final int VenueInfoTitle=0x7f050003;
         public static final int adidasLogo=0x7f05000a;
-        public static final int button1=0x7f05001f;
+        public static final int button1=0x7f050022;
         public static final int imageView1=0x7f050010;
         public static final int imageView2=0x7f050001;
         public static final int infoButton=0x7f05000f;
@@ -54,7 +58,7 @@ public final class R {
         public static final int sponserButton=0x7f05001d;
         public static final int uefaLogo=0x7f05000b;
         public static final int viewFlipper1=0x7f050016;
-        public static final int webView=0x7f05001e;
+        public static final int webView=0x7f050021;
     }
     public static final class layout {
         public static final int info=0x7f030000;
@@ -63,9 +67,10 @@ public final class R {
         public static final int order=0x7f030003;
         public static final int payment=0x7f030004;
         public static final int promotions=0x7f030005;
-        public static final int seating=0x7f030006;
-        public static final int sponsored=0x7f030007;
-        public static final int template=0x7f030008;
+        public static final int redeem=0x7f030006;
+        public static final int seating=0x7f030007;
+        public static final int sponsored=0x7f030008;
+        public static final int template=0x7f030009;
     }
     public static final class string {
         public static final int AdidasAdvertAddress=0x7f040008;

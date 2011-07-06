@@ -6,16 +6,17 @@
   android:layout_height="fill_parent" android:background="@drawable/grass_background1">
     <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/HeaderLayout" android:gravity="center">
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tjtlogo" android:id="@+id/imageView2"></ImageView>
+        <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/imageView1" android:src="@drawable/swipetoorder"></ImageView>
         
     </LinearLayout>
 	    <LinearLayout android:id="@+id/linearLayout2" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-	        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
-	    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout3" android:layout_width="fill_parent" android:orientation="horizontal">
+	        <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+	    <LinearLayout android:id="@+id/linearLayout3"  android:layout_width="wrap_content" android:orientation="horizontal" android:baselineAligned="false" android:layout_height="fill_parent">
 	        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/Total" android:textColor="#000000" android:textSize="30dip" android:layout_gravity="left" android:id="@+id/TotalBillTextView"></TextView>
-	        <Button android:layout_width="wrap_content" android:text="@string/ResetButton" android:fadingEdge="horizontal" android:layout_gravity="right" android:id="@+id/ResetButton" android:layout_height="fill_parent"></Button>
+	        <Button android:text="@string/ResetButton" android:fadingEdge="horizontal" android:layout_gravity="right" android:id="@+id/ResetButton" android:layout_height="fill_parent" android:layout_width="wrap_content"></Button>
 	    </LinearLayout>
         </LinearLayout>
-	        <ViewFlipper android:layout_height="wrap_content" android:id="@+id/viewFlipper1" android:layout_width="fill_parent">
+	        <ViewFlipper android:id="@+id/viewFlipper1" android:layout_width="fill_parent" android:layout_weight="1" android:layout_height="wrap_content">
 	            <ListView android:layout_height="wrap_content" android:id="@+id/listView" android:layout_width="fill_parent" android:background="@drawable/button_background"></ListView>
 	            <LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/orderView" android:layout_width="fill_parent">
 	                <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:inputType="textMultiLine" android:editable="false" android:id="@+id/OrderEditText">

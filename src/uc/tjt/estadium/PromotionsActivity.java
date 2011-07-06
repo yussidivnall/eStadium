@@ -37,6 +37,19 @@ public class PromotionsActivity extends Activity {
 				}	
 			}});
         
+        Button mRedeemButton = (Button)findViewById(R.id.redeemButton);
+        mRedeemButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				try{
+	         		 Intent intent = new Intent(v.getContext(), RedeemVoucherActivity.class);
+	        		 startActivityForResult(intent,0);
+				}catch(ActivityNotFoundException ane){
+						ane.printStackTrace();
+				}	
+			}});
+
         
     }
 }

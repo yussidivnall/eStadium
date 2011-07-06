@@ -20,6 +20,7 @@
         <activity android:name=".SponserActivity"></activity>
         <activity android:name=".SeatingActivity"></activity>
         <activity android:name=".SpecialOffersActivity"></activity>
+        <activity android:name=".RedeemVoucherActivity"></activity>
         
         
 
