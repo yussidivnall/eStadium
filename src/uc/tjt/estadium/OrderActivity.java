@@ -26,6 +26,7 @@ public class OrderActivity extends Activity  {
 	ArrayList<Consumable> mConsumables;
 	MenuListAdapter mAdapter;
 	ListView mListView;
+	
 	LinearLayout mOrderLayout;
 	ViewFlipper mViewFlipper;
 	Bill mBill;
@@ -55,6 +56,29 @@ public class OrderActivity extends Activity  {
         
         mTotalBillTextView = (TextView)findViewById(R.id.TotalBillTextView);
         
+        
+        mOrderEditText = (EditText)findViewById(R.id.OrderEditText);
+        mOrderEditText.setText("");
+        
+        mBill = new Bill(mTotalBillTextView);
+        mListView = (ListView)findViewById(R.id.listView);
+        mConsumables = new ArrayList<Consumable>();
+        mConsumables.clear();
+        fakeMenu();
+        initListview();
+
+        initGestures();
+        initButtons();
+     
+	}
+	void initListview(){
+        mAdapter = new MenuListAdapter(this,mConsumables,mBill);
+        mListView.setAdapter(mAdapter);
+        mViewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper1);
+        mOrderLayout = (LinearLayout)findViewById(R.id.orderView);
+	}
+	
+	void initButtons(){
         mResetButton = (Button)findViewById(R.id.ResetButton);
         mResetButton.setOnClickListener(new OnClickListener(){
 
@@ -62,7 +86,9 @@ public class OrderActivity extends Activity  {
 			public void onClick(View v) {
 				mBill.reset();
 				mTotalBillTextView.setText(getString(R.string.Total));
-				
+				mConsumables.clear();
+		        fakeMenu();
+		        initListview();
 				UpdateOrderText();
 				
 			}
@@ -82,19 +108,10 @@ public class OrderActivity extends Activity  {
 				OrderActivity.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
 			}
 		});
-        
-        mOrderEditText = (EditText)findViewById(R.id.OrderEditText);
-        mOrderEditText.setText("");
-        
-        mBill = new Bill(mTotalBillTextView);
-        mListView = (ListView)findViewById(R.id.listView);
-        mConsumables = new ArrayList<Consumable>();
-        mConsumables.clear();
-        fakeMenu();
-        mAdapter = new MenuListAdapter(this,mConsumables,mBill);
-        mListView.setAdapter(mAdapter);
-        mViewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper1);
-        mOrderLayout = (LinearLayout)findViewById(R.id.orderView);
+		
+	}
+	
+	void initGestures(){
         mGestureDetector = new GestureDetector((android.view.GestureDetector.OnGestureListener)new MyGestureDetector());
         mOnTouchListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -104,8 +121,8 @@ public class OrderActivity extends Activity  {
                 return false;
             }
         };
-     
 	}
+	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 			System.out.println("On Touch Event");

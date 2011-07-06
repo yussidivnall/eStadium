@@ -20,9 +20,9 @@ public class EStadiumActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        ImageButton mRefreshmentsButton = (ImageButton)findViewById(R.id.refreshmentsButton);
-        ImageButton mInfoButton = (ImageButton)findViewById(R.id.infoButton);
-        ImageButton mPromotionsButton = (ImageButton)findViewById(R.id.promotionsButton);
+        ImageView mRefreshmentsButton = (ImageView)findViewById(R.id.refreshmentsButton);
+        ImageView mInfoButton = (ImageView)findViewById(R.id.infoButton);
+        ImageView mPromotionsButton = (ImageView)findViewById(R.id.promotionsButton);
         
         ImageView mAdidasLogo = (ImageView)findViewById(R.id.adidasLogo);
         ImageView mUEFALogo = (ImageView)findViewById(R.id.uefaLogo);

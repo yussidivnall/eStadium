@@ -10,7 +10,7 @@
     </LinearLayout>
     <LinearLayout android:id="@+id/BodyLayout" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <ImageView android:layout_width="wrap_content" android:src="@drawable/specialoffers" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
-        <ListView android:id="@+id/listView1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@drawable/button_background"></ListView>
+        <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@drawable/button_background" android:id="@+id/OffersListView"></ListView>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
     	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">
