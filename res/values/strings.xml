@@ -5,7 +5,7 @@
     <string name="refreshmentsButtonText">Order and Pay</string>
     <string name="promotionsButtonText">My Promotions</string>
     <string name="infoButtonText">Info</string>
-    <string name="Total">0.00</string>
+    <string name="Total">Total:£0.00</string>
     <string name="OrderButton">Order</string>
     <string name="ResetButton">Reset</string>
     <string name="AdidasAdvertAddress">http://www.youtube.com/watch?v=yNOA3Veod8s</string>
@@ -13,7 +13,7 @@
     <string name="OffersButtonText">Offers at the bar</string>
     <string name="redeemButtonText">Redeem Web Voucher</string>
     <string name="sponsoredButtonText">Sponsored Product</string>
-    <string name="spoonserAddress">http://www.workersbeer.co.uk/</string>
+    <string name="spoonserAddress">http://www.heineken.com/AgeGateway.aspx</string>
     <string name="chelseaSeatingPlan">http://theblues.chelseafc.com/iframes/stadiumplan/stadiumplan.htm#</string>
     <string name="VenueInfoTitleText">Venue Information</string>
     <string name="SeatingPlanButtonText">Seating Plan</string>
@@ -22,5 +22,9 @@
   	<string name="CarlsbergExportIcon">http://www.carlsberg.co.uk/SiteImages/Assets/1/1/Carlsberg-bottle.png</string>
   	<string name="CarlsbergSpecialBrewIcon">http://www.carlsberg.co.uk/SiteImages/Assets/1/1/Carlsberg-bottle.png</string>
   	
+	 <string name="SendOrderButtonText">Confirm Order</string>
+ 	<string name="BillRecipientEmail">uri@triplejumptech.com</string>
+  	<string name="Black">#000000</string>
+  	<string name="Blue">#000010</string>
   	  
 </resources>

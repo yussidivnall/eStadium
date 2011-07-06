@@ -3,12 +3,14 @@ package uc.tjt.estadium;
 //All credit goes there...
 import java.util.ArrayList;
 import android.app.Activity;
+import android.content.Intent;
 import android.gesture.GestureOverlayView.OnGestureListener;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class OrderActivity extends Activity  {
@@ -29,6 +32,9 @@ public class OrderActivity extends Activity  {
 	
 	EditText mOrderEditText;
 	Button mSendOrderButton;
+	
+	TextView mTotalBillTextView;
+	Button mResetButton;
 	
 	Animation slideLeftIn;
 	Animation slideLeftOut;
@@ -47,11 +53,40 @@ public class OrderActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order);
         
+        mTotalBillTextView = (TextView)findViewById(R.id.TotalBillTextView);
+        
+        mResetButton = (Button)findViewById(R.id.ResetButton);
+        mResetButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				mBill.reset();
+				mTotalBillTextView.setText(getString(R.string.Total));
+				
+				UpdateOrderText();
+				
+			}
+        });
+        
+        
         mSendOrderButton = (Button)findViewById(R.id.SendOrderButton);
+        mSendOrderButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+				emailIntent.setType("plain/text");
+				emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.BillRecipientEmail)});
+				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Order");
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,mOrderEditText.getText());
+				OrderActivity.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+			}
+		});
+        
         mOrderEditText = (EditText)findViewById(R.id.OrderEditText);
         mOrderEditText.setText("");
         
-        mBill = new Bill();
+        mBill = new Bill(mTotalBillTextView);
         mListView = (ListView)findViewById(R.id.listView);
         mConsumables = new ArrayList<Consumable>();
         mConsumables.clear();
@@ -78,10 +113,10 @@ public class OrderActivity extends Activity  {
 			else return false;
 	}	
 	void fakeMenu(){
-        mConsumables.add(new Consumable(1,"Crack",4.23f));
-        mConsumables.add(new Consumable(2,"Cocaine",4.50f));
-        mConsumables.add(new Consumable(3,"Heroin",4.50f));
-        mConsumables.add(new Consumable(3,"Methamphetamine",4.50f));
+        mConsumables.add(new Consumable(1,"Carlsberg",4.20f));
+        mConsumables.add(new Consumable(2,"Heiniken",4.50f));
+        mConsumables.add(new Consumable(3,"Carlsberg\nExport",4.30f));
+        mConsumables.add(new Consumable(3,"Carlsberg\nSpecial Brew",4.90f));
 	}
 	class MyGestureDetector extends SimpleOnGestureListener{
 
@@ -110,14 +145,12 @@ public class OrderActivity extends Activity  {
 	}
 	void UpdateOrderText(){
 		mOrderEditText.setText("");
-		float total=0;
 		for(BillItem bItem:mBill.items){
 			if(bItem.count > 0){
 				mOrderEditText.append(bItem.mConsumable.name+" \tX"+bItem.count+"\t £"+bItem.cost+"\n");
-				total = total+bItem.cost;
 			}
 		}
-		mOrderEditText.append("Total Bill: £"+total);
+		mOrderEditText.append("Total Bill: £"+mBill.getTotalBill());
 		
 	}
 	

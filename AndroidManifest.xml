@@ -19,6 +19,7 @@
         <activity android:name=".PromotionsActivity"></activity>
         <activity android:name=".SponserActivity"></activity>
         <activity android:name=".SeatingActivity"></activity>
+        <activity android:name=".SpecialOffersActivity"></activity>
         
         
 

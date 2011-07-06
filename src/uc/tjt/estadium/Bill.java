@@ -3,12 +3,16 @@ package uc.tjt.estadium;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Bill{
 	ArrayList <BillItem> items;
-	public Bill(){
+	TextView mTotalTextView;
+	
+	public Bill(TextView totalTV){
 		items = new ArrayList<BillItem>();
+		mTotalTextView = totalTV;
 	}
 	
     public void addDrink(Consumable c){
@@ -22,18 +26,26 @@ public class Bill{
     		bItem.count++;
     		bItem.cost=bItem.mConsumable.price*bItem.count;
     	}
-    	
-    	System.out.println("Count:"+bItem.count);
-    	System.out.println("Totals:"+items.size());
+    	mTotalTextView.setText("Total: £"+getTotalBill());
     }
     public void removeDrink(Consumable c){
     	BillItem bItem = getBillableItem(c);
     	if(bItem==null)return;
     	bItem.remove();
-    	
+    	mTotalTextView.setText("Total: £"+getTotalBill());
+    }
+    public float getTotalBill(){
+    	float ret=0;
+    	for(BillItem bItem:items){
+    		if(bItem.count >0)ret+=bItem.cost;
+    	}
+    	return ret;
     }
     public void clearDrink(Consumable c){}
-    public void reset(){}
+    public void reset(){
+    	items.clear();
+    	mTotalTextView.setText("Total: £"+getTotalBill());
+    }
     
     
     
