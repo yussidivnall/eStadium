@@ -18,10 +18,13 @@
 	    </LinearLayout>
         </LinearLayout>
 	        <ViewFlipper android:layout_height="wrap_content" android:id="@+id/viewFlipper1" android:layout_width="fill_parent">
-	            <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/listView"></ListView>
-	            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/orderView">
-	                <Button android:text="Button" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	            </FrameLayout>
+	            <ListView android:layout_height="wrap_content" android:id="@+id/listView" android:layout_width="fill_parent"></ListView>
+	            <LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/orderView" android:layout_width="fill_parent">
+	                <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:inputType="textMultiLine" android:editable="false" android:id="@+id/OrderEditText">
+	                    <requestFocus></requestFocus>
+	                </EditText>
+	                <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Button" android:id="@+id/SendOrderButton"></Button>
+	            </LinearLayout>
 	        </ViewFlipper>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">

@@ -12,7 +12,10 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
@@ -20,9 +23,12 @@ public class OrderActivity extends Activity  {
 	ArrayList<Consumable> mConsumables;
 	MenuListAdapter mAdapter;
 	ListView mListView;
-	FrameLayout mFrameLayout;
+	LinearLayout mOrderLayout;
 	ViewFlipper mViewFlipper;
 	Bill mBill;
+	
+	EditText mOrderEditText;
+	Button mSendOrderButton;
 	
 	Animation slideLeftIn;
 	Animation slideLeftOut;
@@ -41,6 +47,10 @@ public class OrderActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order);
         
+        mSendOrderButton = (Button)findViewById(R.id.SendOrderButton);
+        mOrderEditText = (EditText)findViewById(R.id.OrderEditText);
+        mOrderEditText.setText("");
+        
         mBill = new Bill();
         mListView = (ListView)findViewById(R.id.listView);
         mConsumables = new ArrayList<Consumable>();
@@ -49,7 +59,7 @@ public class OrderActivity extends Activity  {
         mAdapter = new MenuListAdapter(this,mConsumables,mBill);
         mListView.setAdapter(mAdapter);
         mViewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper1);
-        mFrameLayout = (FrameLayout)findViewById(R.id.orderView);
+        mOrderLayout = (LinearLayout)findViewById(R.id.orderView);
         mGestureDetector = new GestureDetector((android.view.GestureDetector.OnGestureListener)new MyGestureDetector());
         mOnTouchListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -81,6 +91,7 @@ public class OrderActivity extends Activity  {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
+			UpdateOrderText();
             if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) return false;
 			if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 				//mViewFlipper.setAnimation(mListView);
@@ -97,5 +108,18 @@ public class OrderActivity extends Activity  {
 		}
 		
 	}
+	void UpdateOrderText(){
+		mOrderEditText.setText("");
+		float total=0;
+		for(BillItem bItem:mBill.items){
+			if(bItem.count > 0){
+				mOrderEditText.append(bItem.mConsumable.name+" \tX"+bItem.count+"\t £"+bItem.cost+"\n");
+				total = total+bItem.cost;
+			}
+		}
+		mOrderEditText.append("Total Bill: £"+total);
+		
+	}
+	
 	
 }
