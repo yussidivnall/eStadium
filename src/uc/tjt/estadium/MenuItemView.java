@@ -50,6 +50,7 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 		addButton.setText("Add");
 		removeButton.setText("Remove");
 		addButton.setOnClickListener(this);
+		removeButton.setOnClickListener(this);
 	}
 	void updateView(){
 		BillItem bItem = mBill.getBillableItem(mConsumable);
@@ -65,9 +66,12 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		if(v.equals(addButton)){
-				mBill.addDrink(mConsumable);
-				updateView();
+			mBill.addDrink(mConsumable);
 		}
+		if(v.equals(removeButton)){
+			mBill.removeDrink(mConsumable);
+		}
+		updateView();
 	}
 	
 	

@@ -26,7 +26,12 @@ public class Bill{
     	System.out.println("Count:"+bItem.count);
     	System.out.println("Totals:"+items.size());
     }
-    public void removeDrink(Consumable c){}
+    public void removeDrink(Consumable c){
+    	BillItem bItem = getBillableItem(c);
+    	if(bItem==null)return;
+    	bItem.remove();
+    	
+    }
     public void clearDrink(Consumable c){}
     public void reset(){}
     

@@ -24,12 +24,11 @@ public final class R {
         public static final int BodyLayout=0x7f050002;
         public static final int FooterLayout=0x7f050005;
         public static final int HeaderLayout=0x7f050000;
-        public static final int ScrollLayout1=0x7f050013;
         public static final int SeatingPlanButton=0x7f050004;
         public static final int TotalBillTextView=0x7f050010;
         public static final int VenueInfoTitle=0x7f050003;
         public static final int adidasLogo=0x7f050007;
-        public static final int button1=0x7f050019;
+        public static final int button1=0x7f050016;
         public static final int button8=0x7f050011;
         public static final int button9=0x7f050012;
         public static final int imageView2=0x7f050001;
@@ -38,15 +37,17 @@ public final class R {
         public static final int linearLayout1=0x7f05000d;
         public static final int linearLayout2=0x7f050009;
         public static final int linearLayout3=0x7f05000e;
-        public static final int offersButton=0x7f050015;
+        public static final int listView=0x7f050014;
+        public static final int offersButton=0x7f050017;
+        public static final int orderView=0x7f050015;
         public static final int promotionsButton=0x7f05000b;
-        public static final int redeemButton=0x7f050016;
+        public static final int redeemButton=0x7f050018;
         public static final int refreshmentsButton=0x7f05000a;
-        public static final int refreshmentsMenuTableLayout=0x7f050014;
-        public static final int sponserButton=0x7f050017;
+        public static final int sponserButton=0x7f050019;
         public static final int textView3=0x7f05000f;
         public static final int uefaLogo=0x7f050008;
-        public static final int webView=0x7f050018;
+        public static final int viewFlipper1=0x7f050013;
+        public static final int webView=0x7f05001a;
     }
     public static final class layout {
         public static final int info=0x7f030000;

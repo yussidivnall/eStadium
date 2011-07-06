@@ -37,7 +37,9 @@ public class MenuListAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int idx, View view, ViewGroup viewGroup) {
-		MenuItemView retView;
+		//MenuItemView retView;
+		return new MenuItemView(mContext,mConsumables.get(idx),mBill);
+		/*
 		if(view == null){ return new MenuItemView(mContext,mConsumables.get(idx),mBill);}
 		else{
 			retView = (MenuItemView)view;
@@ -45,5 +47,6 @@ public class MenuListAdapter extends BaseAdapter{
 			retView.mItemPrice.setText(" £"+mConsumables.get(idx).price);
 			return retView;
 		}
+		*/
 	}
 }
