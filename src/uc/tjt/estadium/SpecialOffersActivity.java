@@ -30,7 +30,7 @@ public class SpecialOffersActivity extends Activity {
 	void fakeOffers(){
 		mOffers.add(new Offer(1,"Buy 2 beers get 1 at 1/2 price"));
 		mOffers.add(new Offer(2,"Buy 5 beers get 1 at 4/2 price"));
-		mOffers.add(new Offer(2,"Buy 10 beers get a liver pumped at 1/2 price"));
+		mOffers.add(new Offer(3,"Buy 10 beers get 2 for free"));
 	}
 	void initListview(){
         mAdapter = new OffersListAdapter(this,mOffers);

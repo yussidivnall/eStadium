@@ -9,5 +9,7 @@ public class Consumable{
 	Bitmap mIcon;
 	Consumable(long id,String n,float p){
 		name=n;price=p;ID=id;
+		
 	}
+	
 }

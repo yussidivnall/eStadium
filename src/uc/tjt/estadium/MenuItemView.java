@@ -1,10 +1,13 @@
 package uc.tjt.estadium;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +16,8 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 	
 	LinearLayout mRootLayout;
 	LinearLayout mTextLayout;
+	LinearLayout mButtonsLayout;
+	RelativeLayout mButtonsContainer;
 	
 	TextView mItemName;
 	TextView mItemPrice;
@@ -24,6 +29,7 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 	Bill mBill;
 	Consumable mConsumable;
 	
+	ImageView mIcon;
 
 	public MenuItemView(Context context, Consumable consumable,Bill bill) {
 		super(context);
@@ -31,12 +37,30 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 		mContext=context;
 		mBill = bill;
 		mConsumable = consumable;
-		
+
 //		LayoutParams p = new LayoutParams(p);
 		mRootLayout= new LinearLayout(mContext);
 		mRootLayout.setOrientation(HORIZONTAL);
 		mTextLayout = new LinearLayout(mContext);
 		mTextLayout.setOrientation(VERTICAL);
+		
+		mButtonsContainer = new RelativeLayout(mContext);
+		mButtonsContainer.setGravity(Gravity.RIGHT);
+		
+		mButtonsLayout = new LinearLayout(mContext);
+		mButtonsLayout.setOrientation(VERTICAL);
+		
+		
+		if(mConsumable.mIcon != null){
+			mIcon = new ImageView(mContext);
+			mIcon.setImageBitmap(mConsumable.mIcon);
+			mIcon.setMinimumWidth(70);
+			mIcon.setMaxWidth(70);
+			mIcon.setMinimumHeight(100);
+			mIcon.setMaxHeight(100);
+			mRootLayout.addView(mIcon);
+		}
+		
 		//mRootLayout.setLayoutParams(new LayoutParams(""))
 		
 		mItemName = new TextView(context);
@@ -61,17 +85,21 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 		mTextLayout.addView(mTotal, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
 		mRootLayout.addView(mTextLayout);
+
 		
+		mButtonsLayout.setGravity(Gravity.RIGHT);
+		mButtonsLayout.addView(addButton, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		mButtonsLayout.addView(removeButton, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));		
+		mButtonsContainer.addView(mButtonsLayout,new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+		
+		mRootLayout.addView(mButtonsContainer,new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		
 
-		mRootLayout.addView(addButton, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		mRootLayout.addView(removeButton, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+
 		this.addView(mRootLayout);
 		
-		addButton.setText("Add");
-		
-		
-		removeButton.setText("Remove");
+		addButton.setText("      +      ");
+		removeButton.setText("      -      ");
 		addButton.setOnClickListener(this);
 		removeButton.setOnClickListener(this);
 	}

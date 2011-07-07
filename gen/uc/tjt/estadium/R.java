@@ -13,15 +13,20 @@ public final class R {
     public static final class drawable {
         public static final int addidaslogo=0x7f020000;
         public static final int button_background=0x7f020001;
-        public static final int grass_background1=0x7f020002;
-        public static final int icon=0x7f020003;
-        public static final int infobutton=0x7f020004;
-        public static final int promotionsbutton=0x7f020005;
-        public static final int refreshmentsbutton=0x7f020006;
-        public static final int specialoffers=0x7f020007;
-        public static final int swipetoorder=0x7f020008;
-        public static final int tjtlogo=0x7f020009;
-        public static final int uefa_logo=0x7f02000a;
+        public static final int carlsberg_export_icon=0x7f020002;
+        public static final int carlsberg_icon=0x7f020003;
+        public static final int carlsberg_sb_icon=0x7f020004;
+        public static final int grass_background1=0x7f020005;
+        public static final int heineken_icon=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int infobutton=0x7f020008;
+        public static final int no_icon=0x7f020009;
+        public static final int promotionsbutton=0x7f02000a;
+        public static final int refreshmentsbutton=0x7f02000b;
+        public static final int specialoffers=0x7f02000c;
+        public static final int swipetoorder=0x7f02000d;
+        public static final int tjtlogo=0x7f02000e;
+        public static final int uefa_logo=0x7f02000f;
     }
     public static final class id {
         public static final int BodyLayout=0x7f050002;

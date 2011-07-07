@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.gesture.GestureOverlayView.OnGestureListener;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -130,10 +131,23 @@ public class OrderActivity extends Activity  {
 			else return false;
 	}	
 	void fakeMenu(){
-        mConsumables.add(new Consumable(1,"Carlsberg",3.00f));
-        mConsumables.add(new Consumable(2,"Heiniken",4.50f));
-        mConsumables.add(new Consumable(3,"Carlsberg\nExport",4.90f));
-        mConsumables.add(new Consumable(3,"Carlsberg\nSpecial Brew",5.90f));
+		Consumable carlsberg=new Consumable(1,"Carlsberg",3.00f);
+		carlsberg.mIcon = BitmapFactory.decodeResource(getResources(),R.drawable.carlsberg_icon);
+		
+		
+		Consumable heineken =new Consumable(2,"Heineken",4.50f); 
+		heineken.mIcon = BitmapFactory.decodeResource(getResources(),R.drawable.heineken_icon);
+		
+		Consumable carlsberg_export = new Consumable(3,"Carlsberg\nExport",4.90f);
+		carlsberg_export.mIcon = BitmapFactory.decodeResource(getResources(),R.drawable.carlsberg_export_icon);
+		
+		Consumable carlsberg_special_brew =new Consumable(3,"Carlsberg\nSpecial Brew",5.90f); 
+		carlsberg_special_brew.mIcon = BitmapFactory.decodeResource(getResources(),R.drawable.carlsberg_sb_icon);
+		
+		mConsumables.add(carlsberg);
+        mConsumables.add(heineken);
+        mConsumables.add(carlsberg_export);
+        mConsumables.add(carlsberg_special_brew);
 	}
 	class MyGestureDetector extends SimpleOnGestureListener{
 
