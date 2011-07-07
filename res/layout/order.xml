@@ -18,7 +18,7 @@
         </LinearLayout>
 	        <ViewFlipper android:id="@+id/viewFlipper1" android:layout_width="fill_parent" android:layout_weight="1" android:layout_height="wrap_content">
 	            <ListView android:layout_height="wrap_content" android:id="@+id/listView" android:layout_width="fill_parent" android:background="@drawable/button_background"></ListView>
-	            <LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/orderView" android:layout_width="fill_parent">
+	            <LinearLayout android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/orderView" android:layout_width="fill_parent" android:background="@drawable/button_background">
 	                <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:inputType="textMultiLine" android:editable="false" android:id="@+id/OrderEditText">
 	                    <requestFocus></requestFocus>
 	                </EditText>

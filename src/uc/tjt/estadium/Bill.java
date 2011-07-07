@@ -26,7 +26,9 @@ public class Bill{
     		bItem.count++;
     		bItem.cost=bItem.mConsumable.price*bItem.count;
     	}
-    	mTotalTextView.setText("Total: £"+getTotalBill());
+    	String totalStr = new String().format("Total: £%.2f", getTotalBill());
+    	mTotalTextView.setText(totalStr);
+    	//mTotalTextView.setText("Total: £"+getTotalBill());
     }
     public void removeDrink(Consumable c){
     	BillItem bItem = getBillableItem(c);

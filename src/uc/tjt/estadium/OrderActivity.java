@@ -178,10 +178,12 @@ public class OrderActivity extends Activity  {
 		mOrderEditText.setText("");
 		for(BillItem bItem:mBill.items){
 			if(bItem.count > 0){
-				mOrderEditText.append(bItem.mConsumable.name+" \tX"+bItem.count+"\t £"+bItem.cost+"\n");
+				String price = new String().format("%.2f", bItem.cost);
+				mOrderEditText.append(bItem.mConsumable.name+" \tX"+bItem.count+"\t £"+price+"\n");
 			}
 		}
-		mOrderEditText.append("Total Bill: £"+mBill.getTotalBill());
+		String totalStr = new String().format("Total: £%.2f", mBill.getTotalBill());
+		mOrderEditText.append(totalStr);
 		
 	}
 	
