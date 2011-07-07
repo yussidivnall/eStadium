@@ -11,7 +11,7 @@
     <LinearLayout android:id="@+id/BodyLayout" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Bailey's when purchasing and three drinks" android:id="@+id/OfferButton1"></Button>
         <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Scotch Whiskey" android:id="@+id/OfferButton2"></Button>
-        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Free Assange" android:id="@+id/OfferButton3"></Button>
+        <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Bottle of champagne for only £9.00" android:id="@+id/OfferButton3"></Button>
         <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
 
         </LinearLayout>

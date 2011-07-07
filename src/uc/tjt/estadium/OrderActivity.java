@@ -130,10 +130,10 @@ public class OrderActivity extends Activity  {
 			else return false;
 	}	
 	void fakeMenu(){
-        mConsumables.add(new Consumable(1,"Carlsberg",4.20f));
+        mConsumables.add(new Consumable(1,"Carlsberg",3.00f));
         mConsumables.add(new Consumable(2,"Heiniken",4.50f));
-        mConsumables.add(new Consumable(3,"Carlsberg\nExport",4.30f));
-        mConsumables.add(new Consumable(3,"Carlsberg\nSpecial Brew",4.90f));
+        mConsumables.add(new Consumable(3,"Carlsberg\nExport",4.90f));
+        mConsumables.add(new Consumable(3,"Carlsberg\nSpecial Brew",5.90f));
 	}
 	class MyGestureDetector extends SimpleOnGestureListener{
 
