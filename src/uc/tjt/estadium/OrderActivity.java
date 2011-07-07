@@ -4,7 +4,6 @@ package uc.tjt.estadium;
 import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
-import android.gesture.GestureOverlayView.OnGestureListener;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -14,10 +13,8 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -178,11 +175,11 @@ public class OrderActivity extends Activity  {
 		mOrderEditText.setText("");
 		for(BillItem bItem:mBill.items){
 			if(bItem.count > 0){
-				String price = new String().format("%.2f", bItem.cost);
+				String price = String.format("%.2f", bItem.cost);
 				mOrderEditText.append(bItem.mConsumable.name+" \tX"+bItem.count+"\t £"+price+"\n");
 			}
 		}
-		String totalStr = new String().format("Total: £%.2f", mBill.getTotalBill());
+		String totalStr = String.format("Total: £%.2f", mBill.getTotalBill());
 		mOrderEditText.append(totalStr);
 		
 	}

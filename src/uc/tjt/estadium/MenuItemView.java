@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MenuItemView extends LinearLayout implements OnClickListener{
 	Context mContext;
@@ -74,7 +73,8 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 		mItemName.setText(mConsumable.name);
 		mItemName.setTextSize(30);
 		
-		mItemPrice.setText("Price: £"+mConsumable.price);
+		String priceStr = String.format("Price: £%.2f", mConsumable.price);
+		mItemPrice.setText(priceStr);
 		mQuantity.setText("Quantity: 0");
 		mTotal.setText("Total: £0.00");	
 		
@@ -110,7 +110,8 @@ public class MenuItemView extends LinearLayout implements OnClickListener{
 			mTotal.setText("Total: £0.00");
 		}else{
 			mQuantity.setText("Quantity: "+bItem.count);
-			mTotal.setText("Total: £"+bItem.cost);
+			String totalStr= String.format("Total: £%.2f", bItem.cost);
+			mTotal.setText(totalStr);
 		}		
 	}
 

@@ -1,10 +1,8 @@
 package uc.tjt.estadium;
 
 import java.util.ArrayList;
-import java.util.Vector;
-
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class Bill{
 	ArrayList <BillItem> items;
@@ -26,7 +24,7 @@ public class Bill{
     		bItem.count++;
     		bItem.cost=bItem.mConsumable.price*bItem.count;
     	}
-    	String totalStr = new String().format("Total: £%.2f", getTotalBill());
+    	String totalStr = String.format("Total: £%.2f", getTotalBill());
     	mTotalTextView.setText(totalStr);
     	//mTotalTextView.setText("Total: £"+getTotalBill());
     }
