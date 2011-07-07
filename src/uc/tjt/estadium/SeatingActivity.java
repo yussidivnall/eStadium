@@ -10,11 +10,13 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 public class SeatingActivity extends Activity {
+
 	private static final FrameLayout.LayoutParams ZOOM_PARAMS =
 		new FrameLayout.LayoutParams(
 		ViewGroup.LayoutParams.FILL_PARENT,
 		ViewGroup.LayoutParams.WRAP_CONTENT,
 		Gravity.BOTTOM);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
