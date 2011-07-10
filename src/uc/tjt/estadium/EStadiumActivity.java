@@ -6,17 +6,31 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings.Secure;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import android.widget.ImageView;
 
 public class EStadiumActivity extends Activity {
+	DeviceIdentifications mID; 
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        //Identification stuff here
+        //Ref: http://stackoverflow.com/questions/2785485/is-there-a-unique-android-device-id
+        final TelephonyManager tm = (TelephonyManager) getBaseContext().getSystemService(this.TELEPHONY_SERVICE);
+        mID = new DeviceIdentifications();
+        mID.DevId= tm.getDeviceId();
+        mID.SIMId = tm.getSimSerialNumber();
+        mID.AndroidId= "" + android.provider.Settings.Secure.getString(getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+       
+        // Display Elements...
         
         ImageView mRefreshmentsButton = (ImageView)findViewById(R.id.refreshmentsButton);
         ImageView mInfoButton = (ImageView)findViewById(R.id.infoButton);
@@ -80,7 +94,6 @@ public class EStadiumActivity extends Activity {
         
 
         mUEFALogo.setOnClickListener(new OnClickListener(){
-			@Override
 			public void onClick(View v) {
 				try{
 					String address = getString(R.string.UEFAAdvertAddress);

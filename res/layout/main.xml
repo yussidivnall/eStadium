@@ -8,9 +8,11 @@
         <ImageView android:src="@drawable/tjtlogo" android:id="@+id/imageView2" android:layout_width="wrap_content" android:layout_weight="1" android:layout_gravity="center" android:layout_height="wrap_content"></ImageView>    
     </LinearLayout>
     <LinearLayout android:id="@+id/linearLayout2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center|center_vertical" android:layout_gravity="center_vertical" android:orientation="vertical">
-        <ImageView android:src="@drawable/refreshmentsbutton" android:layout_height="wrap_content" android:id="@+id/refreshmentsButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageView>
-        <ImageView android:src="@drawable/promotionsbutton" android:layout_height="wrap_content" android:id="@+id/promotionsButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageView>
-        <ImageView android:src="@drawable/infobutton" android:layout_height="wrap_content" android:id="@+id/infoButton" android:layout_width="fill_parent" android:layout_gravity="fill_horizontal"></ImageView>
+        
+        
+        <ImageView android:src="@drawable/refreshmentsbutton" android:id="@+id/refreshmentsButton" android:background="@drawable/button_background" android:layout_width="wrap_content" android:layout_height="100dip" android:layout_gravity="center_vertical|left"></ImageView>
+        <ImageView android:src="@drawable/promotionsbutton" android:layout_height="100dip" android:id="@+id/promotionsButton" android:background="@drawable/button_background" android:layout_width="wrap_content" android:layout_gravity="center_vertical|left"></ImageView>
+        <ImageView android:src="@drawable/infobutton" android:layout_height="100dip" android:id="@+id/infoButton" android:layout_width="fill_parent" android:background="@drawable/button_background" android:layout_gravity="center_vertical|left"></ImageView>
     </LinearLayout>
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/FooterLayout">
     	<LinearLayout android:id="@+id/innerLinear" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:baselineAligned="false" android:orientation="horizontal">

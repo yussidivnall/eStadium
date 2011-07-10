@@ -26,19 +26,14 @@ public class SeatingActivity extends Activity {
         myWebView.getSettings().setLoadWithOverviewMode(true);
         myWebView.getSettings().setUseWideViewPort(true);
         
-        
-        
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-        FrameLayout mContentView = (FrameLayout) getWindow().
-        getDecorView().findViewById(android.R.id.content);
+        FrameLayout mContentView = (FrameLayout) getWindow().getDecorView().findViewById(android.R.id.content);
 
         final View zoom = myWebView.getZoomControls();
         mContentView.addView(zoom, ZOOM_PARAMS);
         zoom.setVisibility(View.GONE);
-
-        
         myWebView.loadUrl(address);
     }
 	
