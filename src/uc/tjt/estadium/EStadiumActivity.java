@@ -1,11 +1,18 @@
 package uc.tjt.estadium;
 
 
+
+
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Messenger;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -15,9 +22,23 @@ import android.widget.ImageView;
 
 public class EStadiumActivity extends Activity {
 	DeviceIdentifications mID; 
+	Messenger mService; //Outgoing to service
+	final Messenger mMessenger = new Messenger(new IncomingHandler()); //incoming from service 
+	class IncomingHandler extends Handler{
+		
+		
+	}
+	/** Called when the activity is first created. */
+    public void startService(){
+    	Intent intent=new Intent(this,EStadiumService.class);
+    	startService(intent);
+    }
+    public void stopService(){
+    	
+    }
+    
 	
-    /** Called when the activity is first created. */
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -29,7 +50,19 @@ public class EStadiumActivity extends Activity {
         mID.DevId= tm.getDeviceId();
         mID.SIMId = tm.getSimSerialNumber();
         mID.AndroidId= "" + android.provider.Settings.Secure.getString(getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-       
+        //Service Stuff here...
+        final ServiceConnection mConnection = new ServiceConnection(){
+
+			@Override
+			public void onServiceConnected(ComponentName name, IBinder binder) {
+			}
+
+			@Override
+			public void onServiceDisconnected(ComponentName name) {				
+			}
+        	
+        };
+        startService();
         // Display Elements...
         
         ImageView mRefreshmentsButton = (ImageView)findViewById(R.id.refreshmentsButton);
@@ -46,9 +79,7 @@ public class EStadiumActivity extends Activity {
 				try{
          		 Intent intent = new Intent(v.getContext(), OrderActivity.class);
         		 startActivityForResult(intent,0);
-				}catch(ActivityNotFoundException ane){
-					
-				}
+				}catch(ActivityNotFoundException ane){}
 			}
         	
         });
