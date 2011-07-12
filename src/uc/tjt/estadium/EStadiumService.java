@@ -15,7 +15,9 @@ public class EStadiumService extends Service{
 	private NotificationManager mNotificationManager;
 	
 	class IncomingHandler extends Handler{
-        public void handleMessage(Message msg) {}
+        public void handleMessage(Message msg) {
+        	System.out.println("service,handle msg...");
+        }
 	}
 	final Messenger mMessenger = new Messenger(new IncomingHandler());
 	
